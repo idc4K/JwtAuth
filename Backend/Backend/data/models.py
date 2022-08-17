@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     session_token = models.CharField(max_length=10, default=0)
 
-    active = models.BooleanField(default=True)
+    is_verfied = models.BooleanField(default=False)
     
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
