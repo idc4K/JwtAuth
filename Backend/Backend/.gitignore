@@ -4,16 +4,10 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
-cv
-doc_generate
-document
-signing
-company_logo
-company_stamp
-local_settings.py
+settings.py
 db.sqlite3
 db.sqlite3-journal
+settings
 
 # Unit test / coverage reports 
 htmlcov/ 

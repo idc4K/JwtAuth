@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+import uuid
 from django.db import models
 from django.core.mail import send_mail
 
@@ -45,6 +45,7 @@ class UserManager(BaseUserManager):
 # classe de personnalisé de la table User par defaut de Django
 
 class User(AbstractBaseUser, PermissionsMixin):
+    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
