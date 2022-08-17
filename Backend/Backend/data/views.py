@@ -8,6 +8,7 @@ from .serializers import RegisterSerializer,EmailVerificationSerializer,loginuse
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 import jwt
+from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
@@ -59,7 +60,7 @@ class VerifyEmail(generics.GenericAPIView):
 
 
 # LOGIN USER
-class login(generics.GenericAPIView):
+class Login(generics.GenericAPIView):
 	serializer_class = loginuser
 	def post(self,request):
 		serializer = self.serializer_class(data=request.data)

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
+    'rest_framework_simplejwt',
     'data'
 ]
 
@@ -142,5 +143,8 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS: True
 
 REST_FRAMEWORK = {
-    'NON_FIELD_ERROS_KEY': 'error'
+    'NON_FIELD_ERROS_KEY': 'error',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }

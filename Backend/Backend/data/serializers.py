@@ -38,7 +38,7 @@ class loginuser(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=50)
     password = serializers.CharField(max_length=20, write_only=True)
     first_name = serializers.CharField(max_length=100,read_only=True)
-    tokens = serializers.CharField(max_length=60,read_only=True)
+    tokens = serializers.CharField(max_length=255,read_only=True)
   
     class Meta:
         model = User
