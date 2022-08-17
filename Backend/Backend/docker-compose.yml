@@ -6,9 +6,10 @@ services:
         volumes:
             - ./back/db:/var/lib/postgresql/back
         environment:
-           - POSTGRES_DB=postgres
-           - POSTGRES_USER=postgres
-           - POSTGRES_PASSWORD=postgres
+         - POSTGRES_DB=Api
+         - POSTGRES_USER=Api
+         - POSTGRES_PASSWORD=H249hvdffqgtmmpfhnvuegfff@12#
+         - POSTGRES_PORT=5432
         # ports:
         # - "5482:5432"
 
@@ -22,10 +23,10 @@ services:
         ports:
             - "8000:8000"
         environment:
-           - POSTGRES_DB=postgres
+           - POSTGRES_NAME=postgres
            - POSTGRES_USER=postgres
-           - POSTGRES_PASSWORD=postgres
-            # - POSTGRES_PORT=5432
+           - POSTGRES_PASSWORD=JrmkIdc22@32311gf123@123
+           - POSTGRES_PORT=5432
         depends_on:
             - db
     adminer:
