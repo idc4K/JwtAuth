@@ -4,12 +4,11 @@ services:
     db:
         image: postgres
         volumes:
-            - ./donnee/db:/var/lib/postgresql/donnee
+            - ./back/db:/var/lib/postgresql/back
         environment:
-            - POSTGRES_DB=advansus
-            - POSTGRES_USER=advansus
-            - POSTGRES_PASSWORD=JrmkAV22@97
-            - POSTGRES_PORT=5432
+           - POSTGRES_DB=postgres
+           - POSTGRES_USER=postgres
+           - POSTGRES_PASSWORD=postgres
         # ports:
         # - "5482:5432"
 
@@ -23,10 +22,10 @@ services:
         ports:
             - "8000:8000"
         environment:
-            - POSTGRES_NAME=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=JrmkAV22@97#jr098
-            - POSTGRES_PORT=5432
+           - POSTGRES_DB=postgres
+           - POSTGRES_USER=postgres
+           - POSTGRES_PASSWORD=postgres
+            # - POSTGRES_PORT=5432
         depends_on:
             - db
     adminer:
