@@ -2,7 +2,9 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <div>
+        <h1 style={{color: "black"}}>Navbar</h1>
+    </div>
   )
 }
 
