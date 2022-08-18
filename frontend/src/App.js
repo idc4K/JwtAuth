@@ -7,8 +7,11 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import ResetPassConfirm from './components/ResetPassword/ResetPassConfirm';
 import Layout from './components/hocs/Layout';
 import Activate from './components/Activate/Activate';
+import { Provider } from 'react-redux';
+import Store from './components/Store/Store';
 function App() {
   return (
+    <Provider store={Store}>
         <BrowserRouter>
           <Layout/>
           <Routes>
@@ -20,6 +23,7 @@ function App() {
               <Route path="ResetPassConfirm/" element={<ResetPassConfirm/>}/>
           </Routes>
         </BrowserRouter>
+    </Provider>
     
   );
 }
