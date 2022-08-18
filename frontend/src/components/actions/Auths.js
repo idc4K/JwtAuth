@@ -49,8 +49,10 @@ export const login = (email,password) => async dispatch =>{
         const res = await axios.post(`${prefixer}/auth/Login/`,body,config);
         dispatch({
             type:LOGIN_SUCCESS,
-            payload: res.data
+            payload: res.data,
+            
         });
+        console.log(res.data);
         dispatch(load_user());
     } catch (error) {
         dispatch({
