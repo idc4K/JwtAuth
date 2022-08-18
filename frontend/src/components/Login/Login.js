@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
 import {Link,Redirect } from 'react-router-dom';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { login } from '../actions/Auths';
 
-function Login() {
+function Login({ login }) {
   const[formData,setData] = useState({
     email:'',
     password:''
@@ -14,13 +15,15 @@ function Login() {
     setData({
         ...formData,
         [e.target.name] : e.target.value
-    })
+    });
 
-  }
+  };
 
   const handleSubmit = e =>{
     e.preventDefault();
-  }
+    login(email,password);
+  };
+
   return (
     <div className="container mt-5">
         <h1 className="text-center">Connectez vous</h1>
@@ -47,4 +50,4 @@ const mapStateProps = state =>{
     // state
 }
 
-export default Login;
+export default connect(null, {login})(Login);
