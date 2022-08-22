@@ -9,7 +9,7 @@ function Login({ login }) {
     email:'',
     password:''
   });
-  const {email,password } = formData;
+  const {email,password} = formData;
 
   const handleChange = e =>{
     setData({

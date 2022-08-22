@@ -45,15 +45,6 @@ export default function( state = initialState, action){
                 refresh: null,
                 user: null
             }
-
-        case LOAD_USER_SUCCESS:
-            return {
-    
-            }
-        case LOAD_USER_SUCCESS:
-            return {
-        
-            }
     
         default:
             return state;

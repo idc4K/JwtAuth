@@ -9,6 +9,7 @@ import {
 import axios from 'axios';
 
 export const prefixer = 'http://localhost:8000';
+
 export const load_user  = () => async dispatch =>{
     if(localStorage.getItem('access')){
         const config = {
