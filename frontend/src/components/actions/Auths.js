@@ -12,11 +12,44 @@ import {
 
 import axios from 'axios';
 
-
+export const prefixer = 'http://localhost:8000';
 export const checkAuthenticated = () => async dispatch =>{
+    if(localStorage.getItem('access')){
+        const config = {
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        };
+        const body = JSON.stringify({token : localStorage.getItem('access') });
+
+        try{
+            const res = await axios.post(`${prefixer}/api/token/verify/`, body,config);
+            if(res.data.code !== 'token_not_valid'){
+                dispatch({
+                    type:AUTHENTICATED_SUCCESS
+                });
+            }
+            else{
+                dispatch({
+                    type:AUTHENTICATED_FAIL
+                });
+            }
+        }
+        catch (error){
+            dispatch({
+                type:AUTHENTICATED_FAIL
+            });
+        }
+    }
+    else{
+        dispatch({
+            type:AUTHENTICATED_FAIL
+        });
+    }
 
 }
-export const prefixer = 'http://localhost:8000';
+
 
 export const load_user  = () => async dispatch =>{
     if(localStorage.getItem('access')){
@@ -37,7 +70,7 @@ export const load_user  = () => async dispatch =>{
         } catch (error) {
             dispatch({
                 type:USER_LOAD_FAIL,
-            })
+            });
         }
     } else{
         dispatch({
@@ -71,5 +104,8 @@ export const login = (email,password) => async dispatch =>{
 };
 
 export const logout = () =>  dispatch =>{
+    dispatch({
+        type:LOGOUT
+    });
 
 }
