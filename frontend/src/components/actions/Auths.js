@@ -2,12 +2,20 @@ import {
     
     LOGIN_SUCCESS,
     LOGIN_FAIL, 
-    USER_LOAD_USER_SUCCESS, 
-    USER_LOAD_USER_FAIL  
+    USER_LOAD_SUCCESS, 
+    USER_LOAD_FAIL,
+    AUTHENTICATED_SUCCESS,
+    AUTHENTICATED_FAIL,
+    LOGOUT  
+  
 } from './Types';
 
 import axios from 'axios';
 
+
+export const checkAuthenticated = () => async dispatch =>{
+
+}
 export const prefixer = 'http://localhost:8000';
 
 export const load_user  = () => async dispatch =>{
@@ -23,17 +31,17 @@ export const load_user  = () => async dispatch =>{
         try {
             const res = await axios.get(`${prefixer}/Register/`,config);
             dispatch({
-                type: USER_LOAD_USER_SUCCESS,
+                type: USER_LOAD_SUCCESS,
                 payload: res.data
             })
         } catch (error) {
             dispatch({
-                type:USER_LOAD_USER_FAIL,
+                type:USER_LOAD_FAIL,
             })
         }
     } else{
         dispatch({
-            type:USER_LOAD_USER_FAIL,
+            type:USER_LOAD_FAIL,
         })
     }
 };
@@ -61,3 +69,7 @@ export const login = (email,password) => async dispatch =>{
         });
     }
 };
+
+export const logout = () =>  dispatch =>{
+
+}
