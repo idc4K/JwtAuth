@@ -28,10 +28,10 @@ function Login({ login }) {
     <div className="container mt-5">
         <h1 className="text-center">Connectez vous</h1>
         <form onSubmit={handleSubmit}>
-            <div classname="form-group">
+            <div className="form-group">
                 <input type="text" className="form-control" placeholder="Email" name="email" value={email} onChange={handleChange} required/> 
             </div>
-            <div classname="form-group">
+            <div className="form-group">
                 <input type="password" className="form-control mt-3" placeholder="Password" name="password" value={password} onChange={handleChange} minLength="8" required/> 
             </div>
             <button className="btn btn-danger mt-3">connexion</button>

@@ -1,6 +1,9 @@
-import React,{useNavigate} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useNavigate} from 'react-router-dom';
 function Home() {
+
+  const navigue  = useNavigate();
   return (
     <div className="container">
       <h1>HOME</h1>
@@ -9,7 +12,7 @@ function Home() {
          <p className='lead'>THis is an incredible authentication system with production lele features</p>
          <hr className='my-4'/>
          <p>Click the log In button</p>
-         <button>Login</button>
+         <button className='btn btn-danger' onClick={()=>navigue('/Login')}>Login</button>
        </div>
   </div>
   )

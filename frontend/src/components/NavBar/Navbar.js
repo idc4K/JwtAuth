@@ -5,20 +5,20 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg" style={{backgroundColor:"black"}}>
     <div className="container-fluid">
-        <Link className="navbar-brand" to="/" style={{color:"white"}}>Navbar</Link>
+        <Link className="navbar-brand" to="/" style={{color:"white"}}>Idc Auth</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/" style={{color:"white"}}>Header</Link>
+                <Link className="nav-link active" aria-current="page" to="/" style={{color:"white"}}>Home</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/header1" style={{color:"white"}}>Header1</Link>
+                <Link className="nav-link" to="/Login" style={{color:"white"}}>Login</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/header2" style={{color:"white"}}>Header2</Link>
+                <Link className="nav-link" to="/SignUp" style={{color:"white"}}>SignUp</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link disabled" to="/"style={{color:"grey"}}>Disabled</Link>
