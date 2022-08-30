@@ -2,8 +2,8 @@ import {
     
     LOGIN_SUCCESS,
     LOGIN_FAIL, 
-    USER_LOAD_USER_SUCCESS, 
-    USER_LOAD_USER_FAIL ,
+    USER_LOAD_SUCCESS, 
+    USER_LOAD_FAIL ,
     AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL,
     LOGOUT   
@@ -42,12 +42,12 @@ export default function( state = initialState, action){
                 access: payload.access,
                 refresh: payload.refresh
             };
-        case USER_LOAD_USER_SUCCESS:
+        case USER_LOAD_SUCCESS:
             return{
                 ...state,
                 user: payload,
             };
-        case USER_LOAD_USER_FAIL:
+        case USER_LOAD_FAIL:
             return{
                 ...state,
                 user: null,  

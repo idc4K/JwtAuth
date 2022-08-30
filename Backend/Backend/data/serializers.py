@@ -52,6 +52,6 @@ class loginuser(serializers.ModelSerializer):
 
         if not user:
             raise AuthenticationFailed('donnée incorrecte...')
-        if not user.is_verfied:
-            raise AuthenticationFailed('compte non activé...')
+        # if not user.is_verfied:
+        #     raise AuthenticationFailed('compte non activé...')
         return user
