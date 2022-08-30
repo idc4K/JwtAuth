@@ -8,10 +8,10 @@ import ResetPassConfirm from './components/ResetPassword/ResetPassConfirm';
 import Layout from './components/hocs/Layout';
 import Activate from './components/Activate/Activate';
 import { Provider } from 'react-redux';
-import Store from './components/Store/Store';
+import store from './store';
 function App() {
   return (
-    <Provider store={Store}>
+    <Provider store={store}>
         <BrowserRouter>
           <Layout/>
           <Routes>
