@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
-import {Link,Redirect } from 'react-router-dom';
+import {Link,Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '../actions/Auths';
 
-function Login({ login }) {
+
+function Login({ login,isAuthenticated }) {
   const[formData,setData] = useState({
     email:'',
     password:''
@@ -23,6 +24,10 @@ function Login({ login }) {
     e.preventDefault();
     login(email,password);
   };
+
+  if(isAuthenticated){
+    return  <Navigate to="/"/>
+  }
 
   return (
     <div className="container mt-5">
@@ -46,8 +51,8 @@ function Login({ login }) {
   );
 };
 
-const mapStateProps = state =>{
-    // state
-}
+const mapStateToProps = state =>({
+    isAuthenticated: state.Auth.isAuthenticated 
+});
 
-export default connect(null, {login})(Login);
+export default connect(mapStateToProps, {login})(Login);
