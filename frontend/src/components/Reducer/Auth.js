@@ -24,16 +24,16 @@ export default function( state = initialState, action){
             return{
                 ...state,
                 isAuthenticated:true
-            }
+            };
         case AUTHENTICATED_FAIL:
             return{
                 ...state,
                 isAuthenticated:false
-            }
+            };
         case LOGOUT:
             return{
                     
-            }
+            };
         case LOGIN_SUCCESS:
             localStorage.setItem('access',payload.access);
             return {
@@ -46,12 +46,12 @@ export default function( state = initialState, action){
             return{
                 ...state,
                 user: payload,
-            }
+            };
         case USER_LOAD_USER_FAIL:
             return{
                 ...state,
                 user: null,  
-            }
+            };
         case LOGIN_FAIL:
         case LOGOUT:
             localStorage.removeItem('access');
@@ -62,7 +62,7 @@ export default function( state = initialState, action){
                 access: null,
                 refresh: null,
                 user: null
-            }
+            };
         
             
     
