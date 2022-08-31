@@ -2,8 +2,7 @@ import React,{useState} from 'react';
 import {Link,Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { login } from '../actions/Auths';
-
+import { login } from '../../actions/auth';
 
 function Login({ login,isAuthenticated }) {
   const[formData,setData] = useState({

@@ -8,7 +8,7 @@ import {
     AUTHENTICATED_FAIL,
     LOGOUT  
   
-} from './Types';
+} from './types';
 
 import axios from 'axios';
 

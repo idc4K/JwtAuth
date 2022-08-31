@@ -2,7 +2,7 @@ import { legacy_createStore as createStore, applyMiddleware,compose } from 'redu
 import { composeWithDevTools } from 'redux-devtools-extension';
 // import React from 'react';
 import thunk from 'redux-thunk';
-import rootReducer from './components/reducers/rootReducer';
+import rootReducer from './reducers';
 
 
 
@@ -14,9 +14,7 @@ const store = createStore(
   rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
-//   return (
-//     <div>store</div>
-//   )
+
 );
 
 export default store;
