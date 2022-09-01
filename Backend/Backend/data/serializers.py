@@ -55,3 +55,8 @@ class loginuser(serializers.ModelSerializer):
         # if not user.is_verfied:
         #     raise AuthenticationFailed('compte non activé...')
         return user
+
+class cruduser(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','first_name','email','password','tokens']

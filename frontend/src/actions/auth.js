@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 
 export const prefixer = 'http://localhost:8000';
+export const id="";
 export const checkAuthenticated = () => async dispatch =>{
     if(localStorage.getItem('access')){
         const config = {
@@ -24,7 +25,7 @@ export const checkAuthenticated = () => async dispatch =>{
         const body = JSON.stringify({token : localStorage.getItem('access') });
 
         try{
-            const res = await axios.post(`${prefixer}/auth/api/token/verify/`, body,config);
+            const res = await axios.post(`${prefixer}/api/token/verify/`, body,config);
             if(res.data.code !== 'token_not_valid'){
                 dispatch({
                     type:AUTHENTICATED_SUCCESS
@@ -62,7 +63,7 @@ export const load_user  = () => async dispatch =>{
         };
         
         try {
-            const res = await axios.get(`${prefixer}/Register/`,config);
+            const res = await axios.get(`${prefixer}/auth/DetailUsers/${id}/`,config);
             dispatch({
                 type: USER_LOAD_SUCCESS,
                 payload: res.data

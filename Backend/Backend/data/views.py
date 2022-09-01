@@ -4,7 +4,9 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .utils import Util
 from .models import User
-from .serializers import RegisterSerializer,EmailVerificationSerializer,loginuser
+from .serializers import *
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view,permission_classes
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 import jwt
@@ -67,3 +69,11 @@ class Login(generics.GenericAPIView):
 		serializer.is_valid(raise_exception=True)
 		return Response({"user": serializer.data},status=status.HTTP_200_OK)
 # Create your views here.
+
+@api_view(['GET'])
+@csrf_exempt
+def detailuser(request, pk):
+	serializer_class = cruduser
+	donnee = User.objects.get(id=pk)
+	serializer = serializer_class(donnee, many=False)
+	return Response(serializer.data)
