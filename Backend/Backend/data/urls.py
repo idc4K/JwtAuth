@@ -8,6 +8,6 @@ urlpatterns = [
     path('Register/', RegisterView.as_view(), name="register"),
     path('Verify/', VerifyEmail.as_view(), name="verifyEmail"),
     path('Login/', Login.as_view(), name="login"),
-    path('DetailUsers/<str:pk>/',views.detailuser),
+    path('user/',UserAPIView.as_view()),
     
 ]

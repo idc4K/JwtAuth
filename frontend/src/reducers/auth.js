@@ -9,6 +9,8 @@ import {
     LOGOUT   
 } from '../actions/types';
 
+
+
 const initialState = {
     access : localStorage.getItem('access'),
     refresh : localStorage.getItem('refresh'),
@@ -19,15 +21,15 @@ const initialState = {
 export default function(state = initialState, action){
     const{ type, payload } = action;
 
-    switch ((type)) {
+    switch (type) {
         case AUTHENTICATED_SUCCESS:
             return{
-                ...state,
+                state,
                 isAuthenticated:true
             };
         case AUTHENTICATED_FAIL:
             return{
-                ...state,
+                state,
                 isAuthenticated:false
             };
         case LOGOUT:
@@ -37,19 +39,19 @@ export default function(state = initialState, action){
         case LOGIN_SUCCESS:
             localStorage.setItem('access',payload.access);
             return {
-                ...state,
+                state,
                 isAuthenticated: true,
                 access: payload.access,
                 refresh: payload.refresh
             };
         case USER_LOAD_SUCCESS:
             return{
-                ...state,
-                user: payload,
+                state,
+                user: action.payload,
             };
         case USER_LOAD_FAIL:
             return{
-                ...state,
+                state,
                 user: null,  
             };
         case LOGIN_FAIL:
@@ -57,7 +59,7 @@ export default function(state = initialState, action){
             localStorage.removeItem('access');
             localStorage.removeItem('refresh');
             return {
-                ...state,
+                state,
                 isAuthenticated: false,
                 access: null,
                 refresh: null,

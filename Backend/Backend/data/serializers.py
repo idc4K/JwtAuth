@@ -59,4 +59,4 @@ class loginuser(serializers.ModelSerializer):
 class cruduser(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id','first_name','email','password','tokens']
+        fields = ['id','first_name','email','tokens']

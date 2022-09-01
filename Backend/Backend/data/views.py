@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics,status
+from rest_framework import generics,status,permissions
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .utils import Util
@@ -14,6 +14,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view,permission_classes
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
@@ -70,10 +71,16 @@ class Login(generics.GenericAPIView):
 		return Response({"user": serializer.data},status=status.HTTP_200_OK)
 # Create your views here.
 
-@api_view(['GET'])
-@csrf_exempt
-def detailuser(request, pk):
-	serializer_class = cruduser
-	donnee = User.objects.get(id=pk)
-	serializer = serializer_class(donnee, many=False)
-	return Response(serializer.data)
+class UserAPIView(generics.RetrieveAPIView):
+    # permission_classes = [
+    #     permissions.IsAuthenticated,
+    # ]
+    serializer_class = cruduser
+
+    def get_object(self):
+        return self.request.user
+# @api_view(['GET'])
+# @csrf_exempt
+# def get_current_user(request):
+#     serializer = cruduser(request.user)
+#     return Response(serializer.data)
