@@ -24,7 +24,7 @@ export const checkAuthenticated = () => async dispatch =>{
         const body = JSON.stringify({token : localStorage.getItem('access') });
 
         try{
-            const res = await axios.post(`${prefixer}/api/token/verify/`, body,config);
+            const res = await axios.post(`${prefixer}/auth/api/token/verify/`, body,config);
             if(res.data.code !== 'token_not_valid'){
                 dispatch({
                     type:AUTHENTICATED_SUCCESS
