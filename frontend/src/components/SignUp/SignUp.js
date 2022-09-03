@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 function SignUp() {
   
-  const [formData,setDataForm] = useState({
+  const [formSignData,setDataForm] = useState({
     last_name :'',
     first_name:'',
     email:'',
@@ -12,11 +12,11 @@ function SignUp() {
 
   const handleChange = (e) =>{
     setDataForm({
-      ...formData,
+      ...formSignData,
       [e.value.name] : e.target.value
     });
   };
-  const {last_name,first_name,email,password} = formData;
+  const {last_name,first_name,email,password} = formSignData;
   return (
     <div className="container mt-5">
       <h1 className="text-center">Connectez vous</h1>
