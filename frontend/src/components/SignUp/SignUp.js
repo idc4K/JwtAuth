@@ -1,7 +1,8 @@
 import React,{useState} from "react";
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import { sign } from "../../actions/auth";
-function SignUp({sign}) {
+import { connect } from 'react-redux';
+function SignUp({sign,isAuthenticated}) {
   const [AccountCreate, SetAccountCreate] = useState(false); 
   const [formSignData,setDataForm] = useState({
     last_name :'',
@@ -17,6 +18,7 @@ function SignUp({sign}) {
       [e.target.name] : e.target.value
     });
   };
+
   const onSub = (e) =>{
     e.preventDefault();
     if(password == re_password){
@@ -25,11 +27,19 @@ function SignUp({sign}) {
     }
     
   }; 
+
+  if(isAuthenticated){
+    return  <Navigate to="/"/>
+  }
+
+  if(AccountCreate){
+    return <Navigate to='/Login'/>
+  }
   const {last_name,first_name,email,password,re_password} = formSignData;
   return (
     <div className="container mt-5">
-      <h1 className="text-center">Connectez vous</h1>
-      <form >
+      <h1 className="text-center">Inscrivez vous</h1>
+      <form onSubmit={onSub}>
       <div className="form-group">
           <input
             type="text"
@@ -78,7 +88,7 @@ function SignUp({sign}) {
         </div>
         <div className="form-group">
           <input
-            type="re_password"
+            type="password"
             className="form-control mt-3"
             placeholder="Re_password"
             name="re_password"
@@ -88,7 +98,7 @@ function SignUp({sign}) {
             required
           />
         </div>
-        <button className="btn btn-danger mt-3">connexion</button>
+        <button className="btn btn-danger mt-3">Inscription</button>
       </form>
       <p className="mt-3">
         Vous avez déjà un compte? <Link to="/SignUp">Connectez-vous</Link>
@@ -97,4 +107,8 @@ function SignUp({sign}) {
   );
 }
 
-export default SignUp;
+const mapStateToProps = state =>({
+  isAuthenticated: state.auth.isAuthenticated 
+});
+
+export default connect(mapStateToProps, {sign})(SignUp);

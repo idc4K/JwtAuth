@@ -5,7 +5,6 @@ from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth import get_user_model 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68,min_length=8,write_only=True)
-    re_password = serializers.CharField(max_length=68,min_length=8,write_only=True)
     first_name = serializers.CharField(max_length=120)
     last_name = serializers.CharField(max_length=120)
     
@@ -18,12 +17,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         email = attrs.get('email','')
         first_name = attrs.get('first_name','')
         last_name = attrs.get('last_name','')
-        re_password = attrs.get('re_password')
-        password = attrs.get('password')
         if not first_name.isalnum() and not last_name.isalnum():
             serializers.ValidationError("first_name and last_name should only contain alpha numeric character")
-        elif password != re_password:
-            serializers.ValidationError("password differents")
+     
         elif get_user_model().objects.filter(email=email).exists():
             serializers.ValidationError("Ce mail existe déjà differents")
         return attrs
