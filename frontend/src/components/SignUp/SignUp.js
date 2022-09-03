@@ -2,21 +2,22 @@ import React,{useState} from "react";
 import {Link} from 'react-router-dom';
 
 function SignUp() {
-  
+  const [AccountCreate, SetAccountCreate] = useState(false); 
   const [formSignData,setDataForm] = useState({
     last_name :'',
     first_name:'',
     email:'',
-    password:''
+    password:'',
+    re_password:''
   });
 
   const handleChange = (e) =>{
     setDataForm({
       ...formSignData,
-      [e.value.name] : e.target.value
+      [e.target.name] : e.target.value
     });
   };
-  const {last_name,first_name,email,password} = formSignData;
+  const {last_name,first_name,email,password,re_password} = formSignData;
   return (
     <div className="container mt-5">
       <h1 className="text-center">Connectez vous</h1>
@@ -62,6 +63,18 @@ function SignUp() {
             placeholder="Password"
             name="password"
             value={password}
+            onChange={handleChange}
+            minLength="8"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="re_password"
+            className="form-control mt-3"
+            placeholder="Re_password"
+            name="re_password"
+            value={re_password}
             onChange={handleChange}
             minLength="8"
             required
