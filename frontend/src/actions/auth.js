@@ -65,7 +65,7 @@ export const load_user  = () => async dispatch =>{
         // console.log(config);
         
         try {
-            const res = await axios.get(`${prefixer}`,config);
+            const res = await axios.get(`${prefixer}/auth/user/`,config);
             dispatch({
                 type: USER_LOAD_SUCCESS,
                 payload: res.data

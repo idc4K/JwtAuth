@@ -72,9 +72,9 @@ class Login(generics.GenericAPIView):
 # Create your views here.
 
 class UserAPIView(generics.RetrieveAPIView):
-    # permission_classes = [
-    #     permissions.IsAuthenticated,
-    # ]
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
     serializer_class = cruduser
 
     def get_object(self):

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {BrowserRouter, Routes,Route} from 'react-router-dom';
 import Home from './components/Home/Home';
 import SignUp from './components/SignUp/SignUp';
@@ -9,7 +9,14 @@ import Layout from './components/hocs/Layout';
 import Activate from './components/Activate/Activate';
 import { Provider } from 'react-redux';
 import store from './store';
+import { load_user } from './actions/auth';
+
+
 function App() {
+
+  useEffect(() =>{
+    store.dispatch(load_user());
+  });
   return (
     <Provider store={store}>
         <BrowserRouter>
