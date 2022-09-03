@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {Link} from 'react-router-dom';
-
-function SignUp() {
+import { sign } from "../../actions/auth";
+function SignUp({sign}) {
   const [AccountCreate, SetAccountCreate] = useState(false); 
   const [formSignData,setDataForm] = useState({
     last_name :'',
@@ -17,6 +17,14 @@ function SignUp() {
       [e.target.name] : e.target.value
     });
   };
+  const onSub = (e) =>{
+    e.preventDefault();
+    if(password == re_password){
+      sign(last_name,first_name,email,password,re_password);
+      SetAccountCreate(true);
+    }
+    
+  }; 
   const {last_name,first_name,email,password,re_password} = formSignData;
   return (
     <div className="container mt-5">
