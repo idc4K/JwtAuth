@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-
+from .videoAndcategorie import categorie
 
 class Serie(models.Model):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -15,3 +15,4 @@ class Serie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
+    avoir_cat = models.ForeignKey(categorie,related_name="categorie_serie")
