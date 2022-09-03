@@ -4,7 +4,7 @@ from .videoAndcategorie import categorie
 
 class serie(models.Model):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    titre = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=255);
     image = models.FileField(upload_to="serie/")
     durée = models.CharField(max_length=50)
@@ -15,4 +15,4 @@ class serie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
-    avoir_cat = models.ForeignKey(categorie,related_name="categorie_serie")
+    avoir_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_serie")

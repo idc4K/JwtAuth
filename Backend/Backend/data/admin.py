@@ -3,7 +3,7 @@ from .models import *
 from .serie import *
 from .DocAndFIlm import *
 class AffichageUser(admin.ModelAdmin):
-    list_display = ('id','last_name','first_name','email','phone_number','avatar','is_active','is_superuser','user_type','is_staff','is_verified','is_autorise','password','created_at','updated_at','deleted_at')
+    list_display = ('id','username','first_name','email','phone_number','avatar','is_active','is_superuser','user_type','is_staff','is_verified','password','created_at','updated_at','deleted_at')
     search_fields = ['last_name']
 
 class AffichageSerie(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class AffichageFilm(admin.ModelAdmin):
     search_fields = ['title']
 
 class AffichageDocumentaire(admin.ModelAdmin):
-    list_display = ('id','title','description','image','durée','pays','realisateur','actor','deletedocumentaire','avoir','type_cat','created_at','updated_at','deleted_at')
+    list_display = ('id','title','description','image','durée','pays','realisateur','deletedocumentaire','avoir','type_cat','created_at','updated_at','deleted_at')
     search_fields = ['title']
 
 class Videos(admin.ModelAdmin):

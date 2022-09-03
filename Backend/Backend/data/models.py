@@ -16,19 +16,32 @@ from rest_framework_simplejwt.tokens import RefreshToken
 # classe de modification de gestion des utilisateur par defaut de django
 class UserManager(BaseUserManager):
 
-    def create_user(self,email,last_name=None,first_name=None,password=None):
+    def create_user(self,email,username=None,first_name=None,password=None):
         if email is None:
             raise TypeError('le mail est obligatoire')
-        user=self.model(email=self.normalize_email(email),last_name=last_name,first_name=first_name)
+        user=self.model(email=self.normalize_email(email),username=username,first_name=first_name)
         user.user_type= 'is_client'
         user.set_password(password)
         user.save(using=self._db)
         return user
+    
+    def create_admin(self,email,username,first_name=None,password=None):
+        if email is None:
+            raise TypeError('Le mail est obligatoire')
+        if username is None:
+            raise TypeError('Le nom est obligatoire')
+        user = self.model(username=username,email=self.normalize_email(email),first_name=first_name)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-    def create_superuser(self,email,password=None):
-        user = self.create_user(
+    def create_superuser(self,email,password=None,username=None,first_name=None):
+        user = self.create_admin(
             email,
+            username,
+            first_name,
             password=password,
+          
         )
         user.is_staff = True
         user.is_superuser = True
@@ -47,18 +60,18 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    username = models.CharField(_('user name'), max_length=30, blank=True)
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
-    user_type = models.CharField(_('user type'), max_length=30, blank=True)
-    phonenumber = models.CharField(_(""), max_length=70)
+    user_type = models.CharField(_('user type'), max_length=30, blank=True,null=True)
+    phone_number = models.CharField(_(""), max_length=70,null=True)
     is_active = models.BooleanField(_('active'), default=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name','first_name']
+    USERNAME_FIELD = 'email' 
+    REQUIRED_FIELDS = ['username','first_name']
 
     session_token = models.CharField(max_length=10, default=0)
 
@@ -67,8 +80,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=False)
-    deleted_at = models.DateTimeField(auto_now_add=False)
+    updated_at = models.DateTimeField(null=True)
+    deleted_at = models.DateTimeField(null=True)
      
 
     # fontction personalisé pour envoie des messages à l'utilisateur

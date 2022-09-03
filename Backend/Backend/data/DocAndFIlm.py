@@ -4,7 +4,7 @@ from .videoAndcategorie import *
 
 class film(models.Model):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    titre = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=255);
     image = models.FileField(upload_to="serie/")
     durée = models.CharField(max_length=50)
@@ -15,12 +15,12 @@ class film(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
-    concerner = models.ForeignKey(video, on_delete=models.CASCADE,related_name="concerner_film")
+    concerner = models.OneToOneField(video, on_delete=models.CASCADE,related_name="concerner_film")
     avoir_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_film")
 
 class documentaire(models.Model):
-    id =  models.UUIDField(primary_key=True, on_delete=models.CASCADE,default=uuid.uuid4, editable=False)
-    titre = models.CharField(max_length=100)
+    id =  models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=255);
     image = models.FileField(upload_to="serie/")
     durée = models.CharField(max_length=50)
@@ -30,5 +30,5 @@ class documentaire(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
-    avoir = models.ForeignKey(video,on_delete=models.CASCADE,related_name="concerner_documentaire")
+    avoir = models.OneToOneField(video,on_delete=models.CASCADE,related_name="concerner_documentaire")
     type_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_doc")
