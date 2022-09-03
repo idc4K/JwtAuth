@@ -1,13 +1,14 @@
 import uuid
 from django.db import models
-
+from .serie import *
 
 class video_serie(models.Model):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    titre = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     deletevideo = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
+    appartenir = models.ForeignKey(serie, on_delete=models.CASCADE,related_name="appartenir_serie")
 
 

@@ -20,6 +20,7 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError('le mail est obligatoire')
         user=self.model(email=self.normalize_email(email),last_name=last_name,first_name=first_name)
+        user.user_type= 'is_client'
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -49,7 +50,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
+    user_type = models.CharField(_('user type'), max_length=30, blank=True)
+    phonenumber = models.CharField(_(""), max_length=70)
     is_active = models.BooleanField(_('active'), default=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
@@ -60,13 +62,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     session_token = models.CharField(max_length=10, default=0)
 
-    is_verfied = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
     
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
-    deleted_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=False)
+    deleted_at = models.DateTimeField(auto_now_add=False)
      
 
     # fontction personalisé pour envoie des messages à l'utilisateur

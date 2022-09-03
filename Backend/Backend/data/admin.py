@@ -1,3 +1,34 @@
 from django.contrib import admin
 from .models import *
+from .serie import *
+from .DocAndFIlm import *
+class AffichageUser(admin.ModelAdmin):
+    list_display = ('id','last_name','first_name','email','phone_number','avatar','is_active','is_superuser','user_type','is_staff','is_verified','is_autorise','password','created_at','updated_at','deleted_at')
+    search_fields = ['last_name']
+
+class AffichageSerie(admin.ModelAdmin):
+    list_display = ('id','title','description','image','durée','pays','realisateur','actor','deleteserie','avoir_cat','created_at','updated_at','deleted_at')
+    search_fields = ['title']
+class AffichageFilm(admin.ModelAdmin):
+    list_display = ('id','title','description','image','durée','pays','realisateur','actor','deletefilm','concerner','avoir_cat','created_at','updated_at','deleted_at')
+    search_fields = ['title']
+
+class AffichageDocumentaire(admin.ModelAdmin):
+    list_display = ('id','title','description','image','durée','pays','realisateur','actor','deletedocumentaire','avoir','type_cat','created_at','updated_at','deleted_at')
+    search_fields = ['title']
+
+class Videos(admin.ModelAdmin):
+    list_display = ('id','title','deletevideo','created_at','updated_at','deleted_at')
+    search_fields = ['title']
+class VideoSerie(admin.ModelAdmin):
+    list_display = ('id','title','deletevideo','created_at','appartenir','updated_at','deleted_at')
+    search_fields = ['title']
+
+admin.site.register(User,AffichageUser)
+admin.site.register(film,AffichageFilm)
+admin.site.register(serie,AffichageSerie)
+admin.site.register(documentaire,AffichageDocumentaire)
+
 # Register your models here.
+
+

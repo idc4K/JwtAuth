@@ -16,7 +16,7 @@ class film(models.Model):
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
     concerner = models.ForeignKey(video, on_delete=models.CASCADE,related_name="concerner_film")
-    avoir_cat = models.ForeignKey(categorie,related_name="categorie_film")
+    avoir_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_film")
 
 class documentaire(models.Model):
     id =  models.UUIDField(primary_key=True, on_delete=models.CASCADE,default=uuid.uuid4, editable=False)
