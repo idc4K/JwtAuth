@@ -9,6 +9,6 @@ class video_serie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
-    appartenir = models.ForeignKey(serie, on_delete=models.CASCADE,related_name="appartenir_serie")
+    appartenir = models.ForeignKey(serie, on_delete=models.CASCADE,related_name="appartenir_serie",null=True)
 
 
