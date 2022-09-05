@@ -9,5 +9,8 @@ urlpatterns = [
     path('Verify/', VerifyEmail.as_view(), name="verifyEmail"),
     path('Login/', Login.as_view(), name="login"),
     path('user/',UserAPIView.as_view()),
+
+    path('GetAllFilm/',views.viewallfilm),
+    path('GetAllSerie/',views.viewallserie),
     
 ]

@@ -16,7 +16,8 @@ from drf_yasg import openapi
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.decorators import api_view,permission_classes
-
+from DocAndFIlm import *
+from serie import *
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
     def post(self,request):
@@ -80,6 +81,30 @@ class UserAPIView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+@api_view(['GET'])
+@csrf_exempt
+# @permission_classes([IsAuthenticated,autorisation])	
+def viewallfilm(request):
+	serializer_class = CreateFilm
+	# org = OrganismeFormation.objects.all()
+	donnee = film.objects.all()
+    
+	serializer = serializer_class(donnee, many=True)
+	# serializer.data[10] = org
+	return Response({'film':serializer.data})
+@api_view(['GET'])
+@csrf_exempt
+# @permission_classes([IsAuthenticated,autorisation])	
+def viewallserie(request):
+	serializer_class = CreateSerie
+	# org = OrganismeFormation.objects.all()
+	donnee = serie.objects.all()
+    
+	serializer = serializer_class(donnee, many=True)
+	# serializer.data[10] = org
+	return Response({'serie':serializer.data})
 # @api_view(['GET'])
 # @csrf_exempt
 # def get_current_user(request):

@@ -3,6 +3,9 @@ from .models import User
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth import get_user_model 
+
+from DocAndFIlm import *
+from serie import *
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68,min_length=8,write_only=True)
     first_name = serializers.CharField(max_length=120)
@@ -59,5 +62,16 @@ class loginuser(serializers.ModelSerializer):
 
 class cruduser(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = film
         fields = ['id','first_name','email','tokens']
+
+class CreateFilm(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','title','description','image','durée','pays','realisateur','actor','concerner','avoir_cat']
+
+
+class CreateSerie(serializers.ModelSerializer):
+    class Meta:
+        model = serie
+        fields = ['id','title','description','image','durée','pays','realisateur','actor','avoir_cat']

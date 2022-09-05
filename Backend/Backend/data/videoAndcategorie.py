@@ -24,5 +24,5 @@ class categorie(models.Model):
     deleted_at = models.DateTimeField(null=True)
 
     def __str__(self):
-        return self.title
+        return self.genre
 
