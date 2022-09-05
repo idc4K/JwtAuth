@@ -31,13 +31,22 @@ function Content() {
   
   return (
     <div>
-        {
-            films.map((film,index) =>(
-                <div>
-                    <p>{film.name}</p>
-                </div>
-            ))
-        }
+        <div>
+            {
+                films.map((film,index) =>(
+                    <div>
+                        <p>{film.name}</p>
+                    </div>
+                ))
+            }
+        </div>
+        <div>
+            {
+                series.map((serie,index) =>(
+                    <p>{serie.name}</p>
+                ))
+            }
+        </div>
     </div>
   )
 }
