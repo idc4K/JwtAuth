@@ -7,6 +7,7 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import ResetPassConfirm from './components/ResetPassword/ResetPassConfirm';
 import Layout from './components/hocs/Layout';
 import Activate from './components/Activate/Activate';
+import Content from './components/Content/Content';
 import { Provider } from 'react-redux';
 import store from './store';
 import { load_user } from './actions/auth';
@@ -26,6 +27,7 @@ function App() {
               <Route path="SignUp/" element={<SignUp/>}/>
               <Route path="Activate/" element={<Activate/>}/>
               <Route path="Login/" element={<Login/>}/>
+              <Route path="Content/" element={<Content/>}/>
               <Route path="ResetPassword/" element={<ResetPassword/>}/>
               <Route path="ResetPassConfirm/" element={<ResetPassConfirm/>}/>
           </Routes>
