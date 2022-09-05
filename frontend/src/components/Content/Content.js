@@ -2,16 +2,32 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { prefixer } from '../../actions/auth';
 function Content() {
-  const [content,setContent] = useState({});
+//   GET ALL FILM  
+  const [movie,setMovie] = useState({});
 
-  const getFilm = async () =>{
+  const geAlltFilm = async () =>{
     const res = await axios.get(`${prefixer}`);
     console.log(res.data);
-    setContent(res.data);
+    setMovie(res.data);
   };
   useEffect(() => {
-    getFilm();
+    getAllFilm();
   }, []);
+// END GET ALL FILM
+
+// GET ALL SERIE 
+
+ const [s,setSerie] = useState({});
+
+ const getAllSerie = async ()=>{
+    const res = await axios.get(`${prefixer}`);
+    console.log(res.data);
+    setSerie(res.data);
+ };
+ useEffect(() => {
+    getAllSerie()
+ }, []);
+ // END GET ALL SERIE
   
   return (
     <div>
