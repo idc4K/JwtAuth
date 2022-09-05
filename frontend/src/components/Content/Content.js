@@ -25,7 +25,7 @@ function Content() {
     setSerie(res.data);
  };
  useEffect(() => {
-    getAllSerie()
+    getAllSerie();
  }, []);
  // END GET ALL SERIE
   
