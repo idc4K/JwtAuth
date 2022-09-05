@@ -20,10 +20,10 @@ class AffichageDocumentaire(admin.ModelAdmin):
     search_fields = ['title']
 
 class Videos(admin.ModelAdmin):
-    list_display = ('id','title','deletevideo','created_at','updated_at','deleted_at')
+    list_display = ('id','title','video','deletevideo','created_at','updated_at','deleted_at')
     search_fields = ['title']
 class VideoSerie(admin.ModelAdmin):
-    list_display = ('id','title','deletevideo','created_at','appartenir','updated_at','deleted_at')
+    list_display = ('id','title','video_serie','deletevideo','created_at','appartenir','updated_at','deleted_at')
     search_fields = ['title']
 
 admin.site.register(User,AffichageUser)

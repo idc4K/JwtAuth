@@ -21,7 +21,7 @@ function SignUp({sign,isAuthenticated}) {
 
   const onSub = (e) =>{
     e.preventDefault();
-    if(password == re_password){
+    if(password === re_password){
       sign(last_name,first_name,email,password,re_password);
       SetAccountCreate(true);
     }
