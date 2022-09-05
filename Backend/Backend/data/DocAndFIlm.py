@@ -18,6 +18,8 @@ class film(models.Model):
     concerner = models.OneToOneField(video, on_delete=models.CASCADE,related_name="concerner_film")
     avoir_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_film")
 
+    def __str__(self):
+        return self.title
 class documentaire(models.Model):
     id =  models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
@@ -32,3 +34,6 @@ class documentaire(models.Model):
     deleted_at = models.DateTimeField(null=True)
     avoir = models.OneToOneField(video,on_delete=models.CASCADE,related_name="concerner_documentaire")
     type_cat = models.ForeignKey(categorie,on_delete=models.CASCADE,related_name="categorie_doc")
+
+    def __str__(self):
+        return self.title

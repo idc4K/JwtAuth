@@ -12,4 +12,6 @@ class video_serie(models.Model):
     deleted_at = models.DateTimeField(null=True)
     appartenir = models.ForeignKey(serie, on_delete=models.CASCADE,related_name="appartenir_serie",null=True)
 
+    def __str__(self):
+        return self.title
 

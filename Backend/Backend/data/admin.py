@@ -20,11 +20,15 @@ class AffichageDocumentaire(admin.ModelAdmin):
     search_fields = ['title']
 
 class Videos(admin.ModelAdmin):
-    list_display = ('id','title','video','deletevideo','created_at','updated_at','deleted_at')
+    list_display = ('id','title','video','deletevideo','created_at')
     search_fields = ['title']
 class VideoSerie(admin.ModelAdmin):
-    list_display = ('id','title','video_serie','deletevideo','created_at','appartenir','updated_at','deleted_at')
+    list_display = ('id','title','video_serie','deletevideo','created_at','appartenir')
     search_fields = ['title']
+
+class Categories(admin.ModelAdmin):
+    list_display = ('id','genre','deletecategorie')
+    search_fields = ['genre']
 
 admin.site.register(User,AffichageUser)
 admin.site.register(film,AffichageFilm)
@@ -32,6 +36,7 @@ admin.site.register(serie,AffichageSerie)
 admin.site.register(documentaire,AffichageDocumentaire)
 admin.site.register(video,Videos)
 admin.site.register(video_serie,VideoSerie)
+admin.site.register(categorie, Categories)
 # Register your models here.
 
 

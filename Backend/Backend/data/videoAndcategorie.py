@@ -11,6 +11,9 @@ class video(models.Model):
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
 
+    def __str__(self):
+        return self.title
+
 
 class categorie(models.Model):
     id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -19,4 +22,7 @@ class categorie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.title
 
