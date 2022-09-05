@@ -7,13 +7,22 @@ function Content() {
   const getFilm = async () =>{
     const res = await axios.get(`${prefixer}`);
     console.log(res.data);
+    setContent(res.data);
   };
   useEffect(() => {
     getFilm();
   }, []);
   
   return (
-    <div>Content</div>
+    <div>
+        {
+            films.map((film,index) =>(
+                <div>
+                    <p>{film.name}</p>
+                </div>
+            ))
+        }
+    </div>
   )
 }
 

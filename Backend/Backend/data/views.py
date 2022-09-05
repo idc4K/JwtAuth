@@ -10,12 +10,13 @@ from rest_framework.decorators import api_view,permission_classes
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 import jwt
-from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.decorators import api_view,permission_classes
+
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
     def post(self,request):
