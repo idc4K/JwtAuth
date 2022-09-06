@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from 'react-router-dom';
 
-import Navbar from './NavBar/Navbar';
+import Navbar from '../NavBar/Navbar';
 import Header from './Header/Header';
 function Home() {
   const[count,setCount] = useState(0);
