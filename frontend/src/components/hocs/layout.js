@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import Navbar from '../NavBar/Navbar';
+import Navbar from '../Home/NavBar/Navbar';
 import { connect } from 'react-redux';
 import { load_user } from '../../actions/auth';
 const  Layout = (props) => {

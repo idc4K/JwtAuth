@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from 'react-router-dom';
 
 import Navbar from './NavBar/Navbar';
+import Header from './Header/Header';
 function Home() {
   const[count,setCount] = useState(0);
   
@@ -14,7 +15,7 @@ function Home() {
   const navigue  = useNavigate();
   return (
     <div className="container">
-      <Navbar/>
+      <Header/>
       <h1>HOME</h1>
        <div className="jumbotron mt-5">
          <h1 className='display-4'>welcome To Auth Systtem</h1>
