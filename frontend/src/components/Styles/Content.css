@@ -17,6 +17,13 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media screen and (min-width: width 768px) and (max-width:1200px){
+        height:90vh;
+    }
+    @media screen and (min-width: 280px) and (max-width:767px){
+        height:80vh;
+    }
  /* END HEADER STYLES */
    
 }
