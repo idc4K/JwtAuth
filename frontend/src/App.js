@@ -7,7 +7,7 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import ResetPassConfirm from './components/ResetPassword/ResetPassConfirm';
 import Layout from './components/hocs/Layout';
 import Activate from './components/Activate/Activate';
-import Content from './components/Content/Content';
+import Content from './components/Content/Contenu';
 import { Provider } from 'react-redux';
 import store from './store';
 import { load_user } from './actions/auth';
