@@ -61,6 +61,21 @@ const Content = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media screen and (min-width: 768px) and (max-width:1200px){
+        max-width:550px;
+    }
+    @media screen and (min-width: 550px) and (max-width:767px){
+      max-width:450px;
+      margin-top: 13vh;
+    }
+    @media screen and (min-width: 375px) and (max-width:550px){
+      max-width:350px;
+      margin-top: 13vh;
+    }
+    @media screen and (min-width: 280px) and (max-width:375px){
+      max-width:auto;
+      margin-top: 13vh;
+    }
     h4{
         margin: 2vh 0;
     }
@@ -80,7 +95,19 @@ const Content = styled.div`
         text-transform: uppercase;
         font-size:18px;
         color: #f9f9f9;
+        transition: all 0.4s ease-in-out;
         border-radius: 0.350rem;
+        @media screen and (min-width: 550px) and (max-width:1200px){
+          padding:10px 0;
+          font-size:15px;
+        }
+        @media screen and (min-width: 280px) and (max-width:550px){
+          padding:5px 0;
+          font-size:14px;
+        }
+        &:hover{
+
+        }
     }
 
 `

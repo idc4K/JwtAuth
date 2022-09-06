@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from 'react-router-dom';
 
 import Header from './Header/Header';
+import Section from './Section/Section';
 function Home() {
   const[count,setCount] = useState(0);
   
@@ -15,6 +16,7 @@ function Home() {
   return (
     <div>
       <Header/>
+      <Section/>
       {/* <h1>HOME</h1>
        <div className="jumbotron mt-5">
          <h1 className='display-4'>welcome To Auth Systtem</h1>

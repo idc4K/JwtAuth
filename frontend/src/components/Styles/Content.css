@@ -4,7 +4,12 @@ body{
     
     
 }
-
+html{
+    scroll-behavior: smooth;
+    /* scroll-snap-align: start;
+    scroll-snap-type: Y mandatory; */
+    position: relative;
+}
  /* HEADER STYLES */
 .Background {
     background-image: radial-gradient(rgba(0, 0, 0, 0.616), rgba(10, 2, 2, 7)),url("../image/pochetteafrique.png");
