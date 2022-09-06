@@ -39,7 +39,7 @@ const Container = styled.div`
  flex-direction: row-reverse;
  justify-content: space-between;
 
- @media screen and (max-width: 990px) {
+ @media screen and (max-width: 991px) {
     flex-direction: column;
     justify-content: center;
     text-align: center;
