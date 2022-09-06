@@ -11,7 +11,7 @@ function Header() {
     const res = await axios.get(`${prefixer}/auth/GetLogo/`);
     console.log(res.data);
     setLogo(res.data);
-  }
+  };
   useEffect(() =>{
     getLogo();
   }, []);
