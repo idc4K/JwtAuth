@@ -107,5 +107,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     
-
+class logo(models.Model):
+    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    logo = models.FileField(upload_to="logo/")
         

@@ -37,6 +37,7 @@ admin.site.register(documentaire,AffichageDocumentaire)
 admin.site.register(video,Videos)
 admin.site.register(video_serie,VideoSerie)
 admin.site.register(categorie, Categories)
+admin.site.register(logo)
 # Register your models here.
 
 
