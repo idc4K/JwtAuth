@@ -3,7 +3,7 @@ from rest_framework import generics,status,permissions
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .utils import Util
-from .models import User
+from .models import *
 from .serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view,permission_classes
@@ -106,17 +106,31 @@ def viewallserie(request):
 	# serializer.data[10] = org
 	return Response(serializer.data)
 
+
 @api_view(['GET'])
 @csrf_exempt
 # @permission_classes([IsAuthenticated,autorisation])	
-def viewalllogo(request):
-	serializer_class = CreateSerie
+def viewalldocumentaire(request):
+	serializer_class = CreateDocumentaire
 	# org = OrganismeFormation.objects.all()
-	donnee = serie.objects.all()
+	donnee = documentaire.objects.all()
     
 	serializer = serializer_class(donnee, many=True)
 	# serializer.data[10] = org
 	return Response(serializer.data)
+
+@api_view(['GET'])
+@csrf_exempt
+# @permission_classes([IsAuthenticated,autorisation])	
+def viewlogo(request):
+	serializer_class = GetLogo
+	# org = OrganismeFormation.objects.all()
+	donnee = logo.objects.all()
+    
+	serializer = serializer_class(donnee, many=True)
+	# serializer.data[10] = org
+	return Response(serializer.data)
+
 # @api_view(['GET'])
 # @csrf_exempt
 # def get_current_user(request):

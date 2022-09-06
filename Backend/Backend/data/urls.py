@@ -12,5 +12,7 @@ urlpatterns = [
 
     path('GetAllFilm/',views.viewallfilm),
     path('GetAllSerie/',views.viewallserie),
+    path('GetAllDocumentaire/',views.viewalldocumentaire),
+    path('GetLogo/',views.viewlogo),
     
 ]

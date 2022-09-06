@@ -23,7 +23,7 @@ class film(models.Model):
 class documentaire(models.Model):
     id =  models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=255);
+    description = models.CharField(max_length=255)
     image = models.FileField(upload_to="serie/")
     durée = models.CharField(max_length=50)
     pays = models.CharField(max_length=50)
