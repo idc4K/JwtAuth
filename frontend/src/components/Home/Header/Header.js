@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { prefixer } from '../../../actions/auth';
 import { useNavigate } from 'react-router';
+import styled from 'styled-components';
 
 function Header() {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ function Header() {
                             ))
                     }
                     <button type="button" className="btn btn-danger">Start Now</button>
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</h4>
                 </Content>
             </Container>
         </Background>
@@ -35,5 +37,7 @@ function Header() {
     </div>
   )
 }
-
+const Background = styled.section``
+const Container = styled.section``
+const Content = styled.section``
 export default Header
