@@ -5,8 +5,9 @@ body{
     
 }
 
+ /* HEADER STYLES */
 .Background {
-    background-image: url("../image/pochetteafrique.png");
+    background-image: radial-gradient(rgba(0, 0, 0, 0.616), rgba(10, 2, 2, 7)),url("../image/pochetteafrique.png");
     height:100vh;
     background-position: center;
     background-size: cover;
@@ -16,6 +17,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+ /* END HEADER STYLES */
    
 }
    

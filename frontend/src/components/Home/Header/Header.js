@@ -28,7 +28,7 @@ function Header() {
                                 <img key={logo.id} src={`${prefixer}/`+logo.logo_file}/>
                             ))
                     }
-                    <button type="button" className="btn btn-danger start">Start Now</button>
+                    <button type="button" className="btn btn-danger start" onClick={()=> navigate("SignUp")}>Start Now</button>
                     <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</h4>
                 </Content>
             </Container>
@@ -61,6 +61,9 @@ const Content = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    h4{
+        margin: 2vh 0;
+    }
     img{
         display: block;
         max-width: 600px;
@@ -75,6 +78,9 @@ const Content = styled.div`
         text-align: center;
         letter-spacing: 1.5px;
         text-transform: uppercase;
+        font-size:18px;
+        color: #f9f9f9;
+        border-radius: 0.350rem;
     }
 
 `
