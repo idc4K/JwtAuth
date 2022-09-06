@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import *
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth import get_user_model 
@@ -71,7 +71,18 @@ class CreateFilm(serializers.ModelSerializer):
         fields = ['id','title','description','image','durée','pays','realisateur','actor','concerner','avoir_cat']
 
 
+class CreateDocumentaire(serializers.ModelSerializer):
+    class Meta:
+        model = documentaire
+        fields = ['id','title','description','image','durée','pays','realisateur','actor','avoir','type_cat']
+
+
 class CreateSerie(serializers.ModelSerializer):
     class Meta:
         model = serie
         fields = ['id','title','description','image','durée','pays','realisateur','actor','avoir_cat']
+
+class GetLogo(serializers.ModelSerializer):
+    class Meta:
+        model = logo
+        fields = ['id','logo_file']

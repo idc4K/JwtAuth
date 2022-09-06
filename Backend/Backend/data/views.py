@@ -105,6 +105,18 @@ def viewallserie(request):
 	serializer = serializer_class(donnee, many=True)
 	# serializer.data[10] = org
 	return Response(serializer.data)
+
+@api_view(['GET'])
+@csrf_exempt
+# @permission_classes([IsAuthenticated,autorisation])	
+def viewalllogo(request):
+	serializer_class = CreateSerie
+	# org = OrganismeFormation.objects.all()
+	donnee = serie.objects.all()
+    
+	serializer = serializer_class(donnee, many=True)
+	# serializer.data[10] = org
+	return Response(serializer.data)
 # @api_view(['GET'])
 # @csrf_exempt
 # def get_current_user(request):

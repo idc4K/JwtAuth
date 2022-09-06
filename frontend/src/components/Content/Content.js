@@ -1,8 +1,9 @@
 import React from 'react';
-import Slide from './Slide';
+import Slide from './Slide/Slide';
+import '../Styles/Content.css';
 function Content() {
   return (
-    <div>
+    <div className='content'>
       <Slide></Slide>
     </div>
   )

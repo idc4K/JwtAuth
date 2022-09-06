@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { prefixer } from '../../actions/auth';
+import { prefixer } from '../../../actions/auth';
 
 function Slide() {
 //   GET ALL FILM  
