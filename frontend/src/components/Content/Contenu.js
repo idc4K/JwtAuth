@@ -1,7 +1,7 @@
 import React from 'react';
 import Slide from './Slide/Slide';
 import '../Styles/Content.css';
-function Content() {
+function Contenu() {
   return (
     <div className='content'>
       <Slide></Slide>
@@ -9,4 +9,4 @@ function Content() {
   )
 }
 
-export default Content
+export default Contenu

@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from 'react-router-dom';
 
-import Navbar from '../NavBar/Navbar';
 import Header from './Header/Header';
 function Home() {
   const[count,setCount] = useState(0);
@@ -14,9 +13,9 @@ function Home() {
 
   const navigue  = useNavigate();
   return (
-    <div className="container">
+    <div>
       <Header/>
-      <h1>HOME</h1>
+      {/* <h1>HOME</h1>
        <div className="jumbotron mt-5">
          <h1 className='display-4'>welcome To Auth Systtem</h1>
          <p className='lead'>THis is an incredible authentication system with production lele features</p>
@@ -25,7 +24,7 @@ function Home() {
          <p>Click the log In button</p>
          <button className='btn btn-danger' onClick={()=>navigue('/Login')}>Login</button>
          <button className='btn btn-danger my-5' onClick={()=> setCount(count+1)}>change title</button>
-       </div>
+       </div> */}
   </div>
   )
 }

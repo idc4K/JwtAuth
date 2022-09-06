@@ -18,9 +18,9 @@ function Header() {
   
 //   const {logo_file} = logo;
   return (
-    <div>
+    <>
         
-        <Background>
+        <div className='Background'>
             <Container>
                 <Content>
                     {
@@ -28,16 +28,54 @@ function Header() {
                                 <img key={logo.id} src={`${prefixer}/`+logo.logo_file}/>
                             ))
                     }
-                    <button type="button" className="btn btn-danger">Start Now</button>
+                    <button type="button" className="btn btn-danger start">Start Now</button>
                     <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</h4>
                 </Content>
             </Container>
-        </Background>
+        </div>
         
-    </div>
-  )
+    </>
+  );
 }
-const Background = styled.section``
-const Container = styled.section``
-const Content = styled.section``
+// const Background = styled.section`
+//     background-image: url("../image/pochetteafrique.png");
+//     height:95vh;
+//     background-position: center;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     font-size: 80%;
+//     color:red;
+    
+
+    
+
+const Container = styled.div`
+    width:85%;
+    margin:0 auto;
+`
+const Content = styled.div`
+    width: 100%;
+    margin: 0 auto;
+    max-width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+        display: block;
+        max-width: 600px;
+        object-fit: contain;
+    }
+    > .start{
+        outline: none;
+        border: none;
+        width: 100%;
+        padding: 11.5px 15px;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+`
 export default Header
