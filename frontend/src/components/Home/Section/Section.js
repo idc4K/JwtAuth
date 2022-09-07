@@ -9,8 +9,8 @@ function Section() {
         <Sections>
             <Container>
                 <TextInfo>
-                    <p className='farafina-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                    <p className='farafina-title'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    <h1 className='farafina-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
+                    <p className='farafina-text'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
                 </TextInfo>
                 <ImageInfo>
                   <img src={responsive_video}/>
@@ -60,10 +60,10 @@ const TextInfo = styled.div`
  }
 
   p{
-    font-size:1rem;
+    font-size:1.3rem;
     font-weight: 100;
     @media screen and (min-width: 375px) and (max-width: 550px){
-      font-size: 0.86rem;
+      font-size: 1rem;
       line-height: 1rem;
     }
     @media screen and (min-width: 280px) and (max-width: 375px){
@@ -96,9 +96,14 @@ const ImageInfo = styled.div`
       height: auto;
     }
     @media screen and (min-width: 280px) and (max-width: 500px){
-      width:100%;
+      width:105%;
       object-fit: contain;
-      height: 27vh;
+      height: 31vh;
+    }
+    @media screen and (min-width: 180px) and (max-width: 280px){
+      width:110%;
+      object-fit: contain;
+      height: 31vh;
     }
   }
 `
