@@ -7,6 +7,7 @@ import FirstSection from './Section/FirstSection';
 import SecondSection from './Section/SecondSection';
 import ThirdSection from './Section/ThirdSection';
 import FourthSection from './Section/FourthSection';
+import FifthSection from './Section/FifthSection';
 function Home() {
   const[count,setCount] = useState(0);
   
@@ -23,6 +24,7 @@ function Home() {
       <ThirdSection/>
       <FourthSection/>
       <SecondSection/>
+      <FifthSection/>
      
       {/* <h1>HOME</h1>
        <div className="jumbotron mt-5">
