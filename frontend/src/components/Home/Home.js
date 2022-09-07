@@ -9,6 +9,7 @@ import ThirdSection from './Section/ThirdSection';
 import FourthSection from './Section/FourthSection';
 import FifthSection from './Section/FifthSection';
 import Footer from './Footer/Footer';
+import Navbar from './NavBar/Navbar';
 function Home() {
   const[count,setCount] = useState(0);
   
@@ -20,6 +21,7 @@ function Home() {
   const navigue  = useNavigate();
   return (
     <div>
+      <Navbar/>
       <Header/>
       <FirstSection/>
       <ThirdSection/>

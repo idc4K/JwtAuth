@@ -1,33 +1,91 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
+import axios from 'axios';
+import { prefixer } from '../../../actions/auth';
+import movie from'../../image/movie-icon.svg';
+import search from'../../image/search-icon.svg';
+import watch from'../../image/watchlist-icon.svg';
+import serie from'../../image/series-icon.svg';
+// import home from'../../image/home-icon.svg';
 function Navbar() {
+    const[logo, setlogo] = useState([]);
+
+    const getLogo = async () =>{
+    const res = await axios.get(`${prefixer}/auth/GetLogo/`);
+    console.log(res.data);
+    setlogo(res.data);
+  };
+
+  useEffect(() => {
+    getLogo();
+  }, []);
+  
   return (
-    <nav className="navbar navbar-expand-lg" style={{backgroundColor:"black"}}>
-    <div className="container-fluid">
-        <Link className="navbar-brand" to="/" style={{color:"white"}}>Idc Auth</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/" style={{color:"white"}}>Home</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/Login" style={{color:"white"}}>Login</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/SignUp" style={{color:"white"}}>SignUp</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link disabled" to="/"style={{color:"grey"}}>Disabled</Link>
-            </li>
-        </ul>
-        </div>
-    </div>
-</nav>
+    <>
+    <Nav>
+        <NavBrand>
+        {
+            logo.map((logos,index) =>(
+            <img key={logos.id} src={`${prefixer}/`+logos.logo_file}/>
+            ))
+        }
+        </NavBrand>
+        <MenuLinks>
+            <li><Link className='nav-link' to="/"><span>Accueil</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={search}/><span>Recherche</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={watch}/><span>Ma Liste</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={serie}/><span>Series</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={movie}/><span>Films</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={movie}/><span>Documentaires</span></Link></li>
+        </MenuLinks>
+        <UserAuth></UserAuth>
+    </Nav>
+    </>
   )
 }
 
+const Nav = styled.section``
+const NavBrand = styled.div`
+    width:101px;
+    height: auto;
+    object-position: center;
+
+    img{
+       width:100%; 
+       height:auto;
+       object-fit:fill;
+    }
+`
+const MenuLinks = styled.div`
+display:flex;
+align-items: center;
+flex-direction: row;
+flex-wrap: row wrap;
+flex-shrink: 0;
+justify-content: flex-start;
+ li{
+    list-style:none;
+    > .nav-link{
+        text-decoration:none;
+    img{
+        width: 1.3rem;
+        height: 1.3rem;
+        object-fit: contain;
+    }
+    span{
+        font-size:1rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        line-height: 1.08;
+        color:#fff;
+        padding:0.5rem;
+    }
+ }
+ 
+ }
+
+`
+const UserAuth = styled.div``
 export default Navbar
