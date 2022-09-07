@@ -1,24 +1,22 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import responsive_video from '../../image/responsive_video.png';
-
-
-function Section() {
-  return (
-    <>
-        <Sections>
-            <Container>
-                <TextInfo>
-                    <h1 className='farafina-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
-                    <p className='farafina-text'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                </TextInfo>
-                <ImageInfo>
-                  <img src={responsive_video}/>
-                </ImageInfo>
-            </Container>
-        </Sections>
-    </>
-  )
+function SecondSection() {
+    return (
+        <>
+            <Sections>
+                <Container>
+                    <TextInfo>
+                        <h1 className='farafina-title'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
+                        <p className='farafina-text'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    </TextInfo>
+                    <ImageInfo>
+                      <img src={responsive_video}/>
+                    </ImageInfo>
+                </Container>
+            </Sections>
+        </>
+      )
 }
 
 const Sections = styled.section`
@@ -32,11 +30,11 @@ const Sections = styled.section`
    padding: 25px;
     
  }
-`
+ `
 const Container = styled.div`
  display: flex;
  align-items: center;
- flex-direction: row-reverse;
+ flex-direction: row;
  justify-content: space-between;
 
  @media screen and (max-width: 991px) {
@@ -106,5 +104,9 @@ const ImageInfo = styled.div`
       height: 31vh;
     }
   }
+
 `
-export default Section
+
+
+
+export default SecondSection
