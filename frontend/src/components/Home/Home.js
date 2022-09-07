@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import FirstSection from './Section/FirstSection';
 import SecondSection from './Section/SecondSection';
 import ThirdSection from './Section/ThirdSection';
+import FourthSection from './Section/FourthSection';
 function Home() {
   const[count,setCount] = useState(0);
   
@@ -20,6 +21,7 @@ function Home() {
       <Header/>
       <FirstSection/>
       <ThirdSection/>
+      <FourthSection/>
       <SecondSection/>
      
       {/* <h1>HOME</h1>

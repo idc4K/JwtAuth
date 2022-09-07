@@ -20,6 +20,7 @@ function SecondSection() {
 }
 
 const Sections = styled.section`
+  margin-top: 17vh;
   padding: 50px 5%;
   position: relative;
   @media screen and (max-width: 991px) {
