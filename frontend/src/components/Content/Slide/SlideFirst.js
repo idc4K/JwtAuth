@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { prefixer } from '../../../actions/auth';
 
-function Slide() {
+function SlideFirst() {
 //   GET ALL FILM  
   const [films,setFilm] = useState([]);
 
@@ -32,26 +32,15 @@ function Slide() {
   // const {titleSerie} = series;
   // const {titleFilm} = films;
   return (
-    <div>
+    <>
        
-            {
-                films.map((film,index) =>(
-                    <div>
-                        <p>{film.title}</p>
-                    </div>
-                ))
-            }
-      
-            {/* <p>Serie: {titleSerie}</p> 
-            <p>Film: {titleFilm}</p> */}
-            {
-                series.map((serie,key) =>(
-                    <p>{serie.title}</p>
-                ))
-            }
+        <CarouselImgs>
+
+        </CarouselImgs>
         
-    </div>
+    </>
   )
 }
 
-export default Slide
+const CarouselImgs = style.section``;
+export default SlideFirst

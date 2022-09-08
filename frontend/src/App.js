@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {BrowserRouter, Routes,Route} from 'react-router-dom';
+import {BrowserRouter, Routes,Route,Navigate} from 'react-router-dom';
 import Home from './components/Home/Home';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
@@ -11,6 +11,7 @@ import Content from './components/Content/Contenu';
 import { Provider } from 'react-redux';
 import store from './store';
 import { load_user } from './actions/auth';
+import Detail from './components/Content/Detail/Detail';
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
               <Route path="Content/" element={<Content/>}/>
               <Route path="ResetPassword/" element={<ResetPassword/>}/>
               <Route path="ResetPassConfirm/" element={<ResetPassConfirm/>}/>
+              <Route path="Detail/:id" element={<Detail/>}/>
+              <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
     </Provider>
