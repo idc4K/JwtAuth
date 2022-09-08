@@ -23,6 +23,12 @@ function Navbar() {
   useEffect(() => {
     getLogo();
   }, []);
+
+  const [stateBtn,setState] = useState(false);
+
+  const handlePrint = () =>{
+    setState(!stateBtn);
+  };
   
   return (
     <>
@@ -43,9 +49,9 @@ function Navbar() {
             <li><Link className='nav-link' to="/"><img src={watch}/><span>Ma Liste</span></Link></li>
         </MenuLinks>
         <UserAuth>
-            <img src={profile}/>
+            <img src={profile} onClick={handlePrint}/>
         </UserAuth>
-        <PopUpMenu>
+        <PopUpMenu activeState={stateBtn}>
             <li><Link className='nav-link' to="/"><span>Parametre</span></Link></li>
             <li><Link className='nav-link' to="/"><span>Deconexion</span></Link></li>
         </PopUpMenu>
@@ -132,6 +138,7 @@ const UserAuth = styled.div`
 width: 50px;
 height: 50px;
 object-fit: center;
+position: relative;
 img{
     width: 100%;
     height: auto;
@@ -142,7 +149,22 @@ img{
 
 `
 const PopUpMenu = styled.div`
+ position: absolute;
+ top:10vh;
+ right: 3.5rem;
+ padding: 0.5rem 1rem;
+ background-color: #040714;
+ border-radius: 0.345rem;
+ border: 1.3px solid rgba(151,151,151,1);
+ box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
+ display: ${event => event.activeState ? "flex":"none"};
+ align-items: flex-start;
+ flex-direction: column;
   li{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1.3px solid rgba(151,151,151,1);
     list-style:none;
     > .nav-link{
         display: flex;
@@ -165,6 +187,7 @@ const PopUpMenu = styled.div`
         position:relative;
  }
  
+    }
   }
 `
 export default Navbar
