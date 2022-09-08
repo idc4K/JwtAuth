@@ -9,6 +9,8 @@ import search from'../../image/search-icon.svg';
 import watch from'../../image/watchlist-icon.svg';
 import serie from'../../image/series-icon.svg';
 // import home from'../../image/home-icon.svg';
+import profile from '../../image/p.png';
+// import deconexion from '../../image/deconexion.svg';
 function Navbar() {
     const[logo, setlogo] = useState([]);
 
@@ -35,40 +37,60 @@ function Navbar() {
         <MenuLinks>
             <li><Link className='nav-link' to="/"><span>Accueil</span></Link></li>
             <li><Link className='nav-link' to="/"><img src={search}/><span>Recherche</span></Link></li>
-            <li><Link className='nav-link' to="/"><img src={watch}/><span>Ma Liste</span></Link></li>
             <li><Link className='nav-link' to="/"><img src={serie}/><span>Series</span></Link></li>
             <li><Link className='nav-link' to="/"><img src={movie}/><span>Films</span></Link></li>
             <li><Link className='nav-link' to="/"><img src={movie}/><span>Documentaires</span></Link></li>
+            <li><Link className='nav-link' to="/"><img src={watch}/><span>Ma Liste</span></Link></li>
         </MenuLinks>
-        <UserAuth></UserAuth>
+        <UserAuth>
+            <img src={profile}/>
+        </UserAuth>
+        <PopUpMenu>
+            <li><Link className='nav-link' to="/"><span>Parametre</span></Link></li>
+            <li><Link className='nav-link' to="/"><span>Deconexion</span></Link></li>
+        </PopUpMenu>
     </Nav>
     </>
   )
 }
 
-const Nav = styled.section``
+const Nav = styled.section`
+    display: flex;
+    min-height: 2vh;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem 3rem;
+
+`
 const NavBrand = styled.div`
     width:101px;
     height: auto;
     object-position: center;
 
     img{
-       width:100%; 
+       width:120%; 
        height:auto;
        object-fit:fill;
     }
 `
 const MenuLinks = styled.div`
 display:flex;
+min-height: 7vh;
 align-items: center;
 flex-direction: row;
 flex-wrap: row wrap;
 flex-shrink: 0;
 justify-content: flex-start;
+margin-right: auto;
+margin-left: 3rem;
  li{
     list-style:none;
     > .nav-link{
+        display: flex;
+        align-items: center;
         text-decoration:none;
+        position:relative;
     img{
         width: 1.3rem;
         height: 1.3rem;
@@ -81,11 +103,68 @@ justify-content: flex-start;
         line-height: 1.08;
         color:#fff;
         padding:0.5rem;
+        margin-top: 2px;
+        position:relative;
+
+        &::before{
+            position:absolute;
+            content: "";
+            top:100%;
+            left:0;
+            right: 0;
+            height:2px;
+            width: 0%;
+            background: #f9f9f9;
+            transition: all 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        }
+    }
+ }
+ &:hover{
+    span::before{
+        width: 100%;
     }
  }
  
  }
 
 `
-const UserAuth = styled.div``
+const UserAuth = styled.div`
+width: 50px;
+height: 50px;
+object-fit: center;
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 100px;
+  
+}
+
+`
+const PopUpMenu = styled.div`
+  li{
+    list-style:none;
+    > .nav-link{
+        display: flex;
+        align-items: center;
+        text-decoration:none;
+        position:relative;
+    img{
+        width: 1.3rem;
+        height: 1.3rem;
+        object-fit: contain;
+    }
+    span{
+        font-size:1rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        line-height: 1.08;
+        color:#fff;
+        padding:0.5rem;
+        margin-top: 2px;
+        position:relative;
+ }
+ 
+  }
+`
 export default Navbar
