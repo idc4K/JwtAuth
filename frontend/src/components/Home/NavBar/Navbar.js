@@ -152,7 +152,7 @@ const PopUpMenu = styled.div`
  position: absolute;
  top:10vh;
  right: 3.5rem;
- padding: 0.5rem 1rem;
+ padding: 0.5rem 1rem; 
  background-color: #040714;
  border-radius: 0.345rem;
  border: 1.3px solid rgba(151,151,151,1);

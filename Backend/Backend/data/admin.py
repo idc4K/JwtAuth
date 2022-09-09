@@ -19,6 +19,11 @@ class AffichageDocumentaire(admin.ModelAdmin):
     list_display = ('id','title','description','image','durée','pays','realisateur','deletedocumentaire','avoir','type_cat','created_at','updated_at','deleted_at')
     search_fields = ['title']
 
+
+class AffichageCarousel(admin.ModelAdmin):
+    list_display = ('id','image')
+    search_fields = ['title']
+
 class Videos(admin.ModelAdmin):
     list_display = ('id','title','video','deletevideo','created_at')
     search_fields = ['title']
@@ -38,6 +43,7 @@ admin.site.register(video,Videos)
 admin.site.register(video_serie,VideoSerie)
 admin.site.register(categorie, Categories)
 admin.site.register(logo)
+admin.site.register(imagecarousel,AffichageCarousel)
 # Register your models here.
 
 

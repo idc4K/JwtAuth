@@ -37,3 +37,10 @@ class documentaire(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class imagecarousel(models.Model):
+    id =  models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    image = models.FileField(upload_to="imagecarousel/")
+   

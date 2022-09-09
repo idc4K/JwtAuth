@@ -18,8 +18,8 @@ function Contenu() {
 }
 const Container = styled.main`
   position: relative;
-  height: calc(100vh - 250px);
-  padding: calc(3.5vw + 5px);
+  height: calc(120vh - 250px);
+  padding: 0 calc(3.5vw + 5px);
   display: block;
   overflow: hidden;
 

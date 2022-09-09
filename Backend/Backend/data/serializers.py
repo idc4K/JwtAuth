@@ -86,3 +86,8 @@ class GetLogo(serializers.ModelSerializer):
     class Meta:
         model = logo
         fields = ['id','logo_file']
+
+class GetImageCarousel(serializers.ModelSerializer):
+    class Meta:
+        model = imagecarousel
+        fields = ['id','image']

@@ -14,5 +14,6 @@ urlpatterns = [
     path('GetAllSerie/',views.viewallserie),
     path('GetAllDocumentaire/',views.viewalldocumentaire),
     path('GetLogo/',views.viewlogo),
+    path('GetImageCarousel/',views.viewcarousel),
     
 ]
