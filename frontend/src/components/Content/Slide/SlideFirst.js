@@ -98,11 +98,30 @@ const CarouselImgs = styled(Slider)`
     }
 `;
 const Wrap = styled.div`
+  position:relative;
+  div{
+    border-radius:4px;
+    padding:4px;
+    display:block;
+    opacity: 1;
+    z-index:2000;
+    box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
+                rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    cursor: default;
+    object-position: center;
+  }
   img{
     width: 100%;
-    height:900px;
-
+    height:900px; //100%
+    object-fit: cover;
+    border-radius: 4px;
+   
     // image JPG DIMENSION 1440 X 450
+  }
+  &:hover{
+    padding:1px;
+    border:4px solid #fff;
+    transition-duration:300ms;
   }
 `
 export default SlideFirst
