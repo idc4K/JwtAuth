@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { prefixer } from '../../../actions/auth';
 import styled from 'styled-components';
@@ -6,52 +7,55 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import chacka from "../../image/film5.jpeg";
-import film5 from "../../image/im.png";
-function SlideFirst() {
+import film5 from "../../image/LUCA-2.png";
+function SlideSecond() {
 
+  //   GET ALL FILM  
+    const [films,setFilm] = useState([]);
 
-// GET ALL CAROUSEL IMAGE
-
- const [carousel,setCarousel] = useState([]);
-
- const getAllCarousel = async ()=>{
-    const res = await axios.get(`${prefixer}/auth/GetImageCarousel/`);
-    console.log(res.data);
-    setCarousel(res.data);
- };
- useEffect(() => {
-    getAllCarousel();
- }, []);
- // END GET ALL CAROUSEL
-  // const {titleSerie} = series;
-  // const {titleFilm} = films;
-
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay:true
-  };
+    const getAllFilm = async () =>{
+        const res = await axios.get(`${prefixer}/auth/GetAllFilm/`);
+        console.log(res.data);
+        setFilm(res.data);
+    };
+    useEffect(() => {
+        getAllFilm();
+    }, []);
+// END GET ALL FILM
   return (
     <>
-       
-        <CarouselImgs {...settings}>
-              <Wrap>
-                 <div><img src={chacka}/></div>
-              </Wrap>
-              <Wrap>
-                 <div><img src={film5}/></div>
-              </Wrap>
-              
-        </CarouselImgs>
-        
+        <Section>
+            <Carousel>
+                <h1>FILMS</h1>
+                <Wrap>
+                    <div><Link to="/"><img src={chacka}/></Link></div>
+                </Wrap>
+            </Carousel>
+        </Section>
     </>
   )
 }
 
-const CarouselImgs = styled(Slider)`
+const Section = styled.section`
+padding:1rem 0;
+h1{
+    font-size:1.7rem;
+    text-transform: uppercase;
+    font-weight: 300 !important;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(255,255,255,0.1);
+    margin: 2vh 0 1vh 2rem;
+
+    @media screen and (max-width:991px){
+        font-size: 1.1rem;
+    }
+    @media screen and (max-width:550px){
+        font-size: 0.95rem;
+    }
+
+}
+
+`;
+const Carousel = styled(Slider)`
     ul li button{
       &::before{
         font-size: 11px;
@@ -101,7 +105,7 @@ const Wrap = styled.div`
   }
   img{
     width: 100%;
-    height:900px; //100%
+    height:100%; //100%
     object-fit: cover;
     border-radius: 4px;
    
@@ -112,5 +116,7 @@ const Wrap = styled.div`
     border:4px solid #fff;
     transition-duration:300ms;
   }
+
+  /* IMAGE DIMENSION 630 X 378 */
 `
-export default SlideFirst
+export default SlideSecond

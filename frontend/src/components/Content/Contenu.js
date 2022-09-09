@@ -1,5 +1,6 @@
 import React from 'react';
 import SlideFirst from './Slide/SlideFirst';
+import SlideSecond from './Slide/SlideSecond';
 import '../Styles/Content.css';
 import styled from 'styled-components';
 import Footer from '../Home/Footer/Footer';
@@ -10,7 +11,9 @@ function Contenu() {
     <Navbar/>
     <Container>
         <SlideFirst/>
+       
     </Container>
+    <SlideSecond/>
     <Footer/>
      
     </>
